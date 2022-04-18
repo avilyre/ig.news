@@ -13,8 +13,15 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 - *:fire: Pré processador SASS*
 
 ### Clonando e Rodando
-```
-  code ...
+```javascript
+  // Clone o projeto
+  $ git clone https://github.com/avilysva/ig.news.git
+  
+  // Rode o projeto com o seguinte comando
+  $ yarn dev
+  
+  // O projeto será executado na seguinte porta
+  $ http://localhost:3000
 ```
 
 ## A Aplicação
