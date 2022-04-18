@@ -10,6 +10,7 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 
 - *:fire: ReactJS*
 - *:fire: NextJS + TypeScript*
+- *:fire: Pré processador SASS*
 
 ### Clonando e Rodando
 ```
