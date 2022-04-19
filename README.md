@@ -11,6 +11,7 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 - *:fire: ReactJS*
 - *:fire: NextJS + TypeScript*
 - *:fire: Pré processador SASS*
+- *:fire: React Icons*
 
 ### Clonando e Rodando
 ```javascript
