@@ -1,20 +1,18 @@
-import { GetServerSideProps } from "next";
-import Head from "next/head";
+import { GetStaticProps } from "next";
 
-import { SubscribeButton } from "../components/SubscribeButton";
-import { stripe } from "../services/stripe";
 import { HomeProps } from "../interfaces/home.interfaces";
-
 import { currencyFormatter } from "../utils/currencyFormatter";
+import { SubscribeButton } from "../components/SubscribeButton";
+import { NextHead } from "../components/NextHead";
+
+import { stripe } from "../services/stripe";
 
 import styles from "../styles/pages/home.module.scss";
 
 export default function Home({ product }: HomeProps) {
   return (
     <>
-      <Head>
-        <title>Home | ig.news</title>
-      </Head>
+      <NextHead title="Home" />
 
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
@@ -35,7 +33,7 @@ export default function Home({ product }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve("price_1KqQw8CXCCDs6rb5omQK8m6I", {
     // Trás todas as informações do produto ligado a esse preço
     // expand: ['product']
@@ -49,6 +47,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       product
-    }
+    },
+    revalidate: 60 * 60 * 24 // 24 Hours
   }
 }
