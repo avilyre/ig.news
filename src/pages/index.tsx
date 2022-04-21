@@ -10,6 +10,7 @@ import { stripe } from "../services/stripe";
 import styles from "../styles/pages/home.module.scss";
 
 export default function Home({ product }: HomeProps) {
+  
   return (
     <>
       <NextHead title="Home" />
