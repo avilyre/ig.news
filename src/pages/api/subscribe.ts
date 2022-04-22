@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 
-import { stripe } from "../../../services/stripe";
+import { stripe } from "../../services/stripe";
 
 export default async function subscribe(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    // Getting user from Cookies using next-auth because
+    // Getting user from Cookies using next-auth becauses
     // remember: local storage is NOT available on server-side, just on client-side
     const session = await getSession({ req });
 
@@ -25,7 +25,10 @@ export default async function subscribe(
       billing_address_collection: "required",
       allow_promotion_codes: true,
       line_items: [
-        { price: "price_1KqQw8CXCCDs6rb5omQK8m6I" }
+        {
+          price: "price_1KqQw8CXCCDs6rb5omQK8m6I",
+          quantity: 1
+        }
       ],
       mode: "subscription"
     })
@@ -34,6 +37,5 @@ export default async function subscribe(
   } else {
     res.setHeader("Allow", "POST")
     res.status(405).end("Method not allowed");
-
   }
 }
