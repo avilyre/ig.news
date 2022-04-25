@@ -14,6 +14,8 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 - *:fire: NextJS + TypeScript*
 - *:fire: Pré processador SASS*
 - *:fire: React Icons*
+- *:fire: Stripe Payments*
+- *:fire: Fauna DB*
 
 ### Clonando e Rodando
 ```javascript
