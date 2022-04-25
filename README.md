@@ -4,7 +4,9 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 
 ### Features
 
-- *:pencil: Em desenvolvimento*
+- *:pencil: Login através do Github*
+- *:pencil: Inscrição da assinatura do usuário*
+- *:pencil: Pagamento via Stripe*
 
 ### Tecnologias
 
