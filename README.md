@@ -12,6 +12,7 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 
 - *:fire: ReactJS*
 - *:fire: NextJS + TypeScript*
+- *:fire: Prismic CMS*
 - *:fire: Pré processador SASS*
 - *:fire: React Icons*
 - *:fire: Stripe Payments*
