@@ -7,6 +7,7 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 - *:pencil: Login através do Github*
 - *:pencil: Inscrição da assinatura do usuário*
 - *:pencil: Pagamento via Stripe*
+- *:pencil: Listagem de postagens dinâmicas*
 
 ### Tecnologias
 
