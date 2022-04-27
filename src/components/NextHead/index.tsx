@@ -5,7 +5,7 @@ import { NextHeadProps } from "./interfaces";
 export function NextHead({ title }: NextHeadProps) {
   return (
     <Head>
-      <title>{title ? `${title} | ig.news` : title}</title>
+      <title>{title ? `${title} | ig.news` : "ig.news"}</title>
     </Head>
   )
 }
