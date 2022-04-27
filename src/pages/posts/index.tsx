@@ -4,6 +4,7 @@ import { PrismicRichText } from "@prismicio/react";
 import { NextHead } from "../../components/NextHead";
 import { PostsProps } from "../../interfaces/posts.interfaces";
 import { createClient } from "../../services/prismic";
+import { dateFormatter } from "../../utils/dateFormatter";
 
 import styles from "../../styles/pages/posts.module.scss";
 
@@ -39,16 +40,9 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
       content: [
         post.data.content.find(content => content.type === "paragraph")
       ],
-      updatedAt: new Date(post.last_publication_date)
-      .toLocaleDateString("pt-BR", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric"
-      })
+      updatedAt: dateFormatter(post.last_publication_date)
     }
   })
-  
-  console.log(JSON.stringify(posts))
 
   return {
     props: { posts }
