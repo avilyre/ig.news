@@ -25,7 +25,9 @@
     }
 
     h1 {
+      font-size: 1.7rem;
       margin-top: 1rem;
+      transition: color 0.2s;
     }
 
     strong {
@@ -36,7 +38,6 @@
 
       color: var(--gray-300);
 
-      transition: color 0.2s;
     }
 
     p {
