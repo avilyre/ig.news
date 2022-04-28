@@ -7,6 +7,7 @@ import { createClient } from "../../services/prismic";
 import { dateFormatter } from "../../utils/dateFormatter";
 
 import styles from "../../styles/pages/posts.module.scss";
+import Link from "next/link";
 
 export default function Posts({ posts }: PostsProps) {
   return (
@@ -16,11 +17,13 @@ export default function Posts({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map(post => (
-            <a key={post.slug} href="#">
-              <time>{post.updatedAt}</time>
-              <PrismicRichText field={post.title} />
-              <PrismicRichText field={post.content} />
-            </a>
+            <Link key={post.uid} href={`/posts/${post.uid}`}>
+              <a>
+                <time>{post.updatedAt}</time>
+                <PrismicRichText field={post.title} />
+                <PrismicRichText field={post.content} />
+              </a>
+            </Link>
           ))}
         </div>
       </main>
@@ -34,8 +37,9 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const response = await client.getAllByType("posts")
 
   const posts = response.map(post => {
+    console.log(post)
     return {
-      slug: post.id,
+      uid: post.uid,
       title: post.data.title,
       content: [
         post.data.content.find(content => content.type === "paragraph")

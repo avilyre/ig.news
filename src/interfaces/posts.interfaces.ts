@@ -1,6 +1,6 @@
-interface Post {
-  slug: string;
-  title: [];
+export interface Post {
+  uid: string;
+  title: unknown[];
   content: [];
   updatedAt: [];
 }
