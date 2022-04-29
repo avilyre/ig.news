@@ -5,14 +5,20 @@ import styles from "./styles.module.scss";
 
 import { api } from "../../services/api";
 import { getStripe } from "../../services/stripe-js";
+import { useRouter } from "next/router";
 
 export function SubscribeButton({ productId }: SubscribeButtonProps) {
-  const { status } = useSession();
+  const router = useRouter();
+  const { status, data } = useSession();
 
   async function handleSubscribe() {
     if (status !== "authenticated") {
       signIn("github");
       return;
+    }
+
+    if (data.activeSubscription) {
+      return router.push("/posts");
     }
 
     try {
