@@ -29,9 +29,14 @@ export default function Post({ post }: PostProps): JSX.Element {
 export const getServerSideProps: GetServerSideProps = async ({ req, params, previewData }) => {
   const session = await getSession({ req });
 
-  // if (!session) {
-
-  // }
+  if (!session.activeSubscription) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false
+      }
+    }
+  }
 
   const { uid } = params
 
