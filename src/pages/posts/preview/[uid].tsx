@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { PrismicRichText } from "@prismicio/react";
-import { GetStaticProps } from "next"
-import { getSession } from "next-auth/react"
+import { GetStaticPaths, GetStaticProps } from "next"
+import { useSession } from "next-auth/react"
 
 import { NextHead } from "../../../components/NextHead";
 import { PostProps } from "../../../interfaces/post.intefaces";
@@ -11,6 +13,16 @@ import styles from "../../../styles/pages/post.module.scss";
 import Link from "next/link";
 
 export default function PostPreview({ post }: PostProps): JSX.Element {
+  const router = useRouter();
+  const { data } = useSession();
+
+  useEffect(() => {
+    console.log(data);
+
+    if (data?.activeSubscription) {
+      router.push(`/posts/${post.uid}`);
+    }
+  }, [data])
 
   return (
     <>
@@ -36,7 +48,7 @@ export default function PostPreview({ post }: PostProps): JSX.Element {
   )
 }
 
-export const getStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: [],
     fallback: "blocking"
@@ -59,6 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params, previewData }) =>
   return {
     props: {
       post
-    }
+    },
+    revalidate: 60 * 30 // 30 Minutes
   }
 }
