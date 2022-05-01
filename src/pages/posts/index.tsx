@@ -8,8 +8,12 @@ import { dateFormatter } from "../../utils/dateFormatter";
 
 import styles from "../../styles/pages/posts.module.scss";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function Posts({ posts }: PostsProps) {
+  const { data } = useSession();
+  const isSubscribed = !!data?.activeSubscription;
+
   return (
     <>
       <NextHead title="Posts" />
@@ -17,7 +21,10 @@ export default function Posts({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map(post => (
-            <Link key={post.uid} href={`/posts/${post.uid}`}>
+            <Link
+              key={post.uid}
+              href={`/posts${isSubscribed ? "" : "/preview"}/${post.uid}`}
+            >
               <a>
                 <time>{post.updatedAt}</time>
                 <PrismicRichText field={post.title} />
