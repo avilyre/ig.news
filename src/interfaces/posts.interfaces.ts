@@ -1,6 +1,6 @@
 export interface Post {
   uid: string;
-  title: unknown[];
+  title: [] | unknown[];
   content: [];
   updatedAt: [];
 }

@@ -27,7 +27,7 @@ export default function Posts({ posts }: PostsProps) {
             >
               <a>
                 <time>{post.updatedAt}</time>
-                <PrismicRichText field={post.title} />
+                <PrismicRichText field={post.title as []} />
                 <PrismicRichText field={post.content} />
               </a>
             </Link>
