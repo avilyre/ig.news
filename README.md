@@ -8,6 +8,7 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
 - *:pencil: Inscrição da assinatura do usuário*
 - *:pencil: Pagamento via Stripe*
 - *:pencil: Listagem de postagens dinâmicas*
+- *:pencil: Autênticação de visualização de conteúdo*
 
 ### Tecnologias
 
