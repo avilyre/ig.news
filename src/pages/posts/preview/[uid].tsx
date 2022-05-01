@@ -8,6 +8,7 @@ import { createClient } from "../../../services/prismic";
 import { dateFormatter } from "../../../utils/dateFormatter";
 
 import styles from "../../../styles/pages/post.module.scss";
+import Link from "next/link";
 
 export default function PostPreview({ post }: PostProps): JSX.Element {
 
@@ -16,12 +17,19 @@ export default function PostPreview({ post }: PostProps): JSX.Element {
       <NextHead title={post.title[0].text} />
 
       <main className={styles.container}>
-        <article className={
-          `${styles.post} ${styles.previewContent}`
-          }>
-          <time>{post.updatedAt}</time>
-          <PrismicRichText field={post.title as unknown as []} />
-          <PrismicRichText field={post.content} />
+        <article className={styles.post}>
+          <div className={styles.previewContent}>
+            <time>{post.updatedAt}</time>
+            <PrismicRichText field={post.title as unknown as []} />
+            <PrismicRichText field={post.content} />
+          </div>
+          <div className={styles.continueReading}>
+            Wanne continue reading ?
+            <Link href="/">
+              <a>Subscribe now</a>
+            </Link>
+            🤗
+          </div>
         </article>
       </main>
     </>
