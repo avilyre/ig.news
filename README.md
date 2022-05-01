@@ -30,6 +30,12 @@ Tenha notícias em primeira mão e de altíssima qualidade através de assinatur
   
   // O projeto será executado na seguinte porta
   $ http://localhost:3000
+  
+  // Para ouvir os Webhooks do stripe, primeiro instale a CLI
+  https://stripe.com/docs/stripe-cli/overview
+  
+  // Rode o comando a baixo para ouvir os Webhooks
+  $ stripe listen --forward-to localhost:3000/api/webhooks
 ```
 
 ## A Aplicação
